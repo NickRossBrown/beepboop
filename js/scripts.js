@@ -1,24 +1,25 @@
 
 var resultText = function(result){
-  $("output").text(result);
+  $(".outputDiv").text(result);
 }
+function isItANumber(text){
+  var number = (text)
+  if (isNaN(number)===true){
+    resultText("Please enter a number")
+  }
+  if(isNaN(number)===false){
+    return(number)
+    console.log(number)
+  }
+}
+
 
 $(document).ready(function() {
   $("#submitButton").click(function(event) {
     event.preventDefault();
     var inputText = $("#input").val()
-    console.log(inputText)
-    resultText(inputText)
+
+    isItANumber(inputText)
+
   });
 });
-
-// $(document).ready(function() {
-//   $("#submit").click(function(event){
-//     event.preventDefault();
-//     var inputText = parseInt($("#input").val());
-//     // someThing(inputText);
-//     // console.log("The result of the input is " + someThing(inputText))
-//     conversionResult(someThing(inputText).join(""));
-//   });
-//
-// });
