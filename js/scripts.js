@@ -24,7 +24,7 @@ function lookForNumberOne(number) {
   return something;
 }
 function lookForAZero(number) {
-  var number = $("#input").val();
+  // var number = $("#input").val();
   var something = false;
   for(x=0;x<number.length;x+=1){
     if (number[x] == 0){
@@ -54,9 +54,10 @@ var range = function getRange(number) {
 }
 function runAllFunctionsBasicBot(input){
   var inputText = parseInt($("#input").val());
+  var needThis = $("#input").val();
   var inputNumber =  isItANumber(inputText);
   var isThereAOne = lookForNumberOne(inputText);
-  var isThereAZero = lookForAZero(inputText)
+  var isThereAZero = lookForAZero(needThis)
   var canBeDividedByThree = dividedByThree(inputText)
   // range(inputText)
   // console.log(range)
@@ -98,8 +99,16 @@ function runAllFunctionsEvenRangeBot(input){
       console.log("reached /3  if here  "+evenArray[i]+finalArray)
       finalArray = finalArray.replace(evenArray[i],"Sorry DAVE")
     }
+    if (lookForNumberOne(i)==true){
+      console.log("FOUND A ONE reached if here  "+evenArray[i]+finalArray)
+      finalArray = finalArray.replace(evenArray[i],"BOOP!")
+    }
+    if (lookForAZero(i)==true){
+      console.log("FOUND A ZZZZEEERO reached if here  "+evenArray[i]+finalArray)
+      finalArray = finalArray.replace(evenArray[i],"BEEP!")
+    }
   }
-  $(".outputDivEvenRange").text(evenRange(inputText2))
+  $(".outputDivEvenRange").text(finalArray)
 }
 
 $(document).ready(function() {
