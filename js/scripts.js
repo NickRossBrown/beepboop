@@ -16,34 +16,29 @@ function isItANumber(text){
 };
 function lookForNumberOne(number) {
   var number = $("#input").val();
-  // console.log("reached function look for number one   "+ number + number.length)
   var something = false;
   for(x=0;x<number.length;x+=1){
-    // console.log(x + "  number[x]  " + number[x])
     if (number[x] == 1){
       console.log("found a 1");
       something = true;
       break;
     };
   };
-  // console.log("the ending of function   ...." + something)
   return something;
 }
 function lookForAZero(number) {
   var number = $("#input").val();
-  // console.log("reached function look for number one   "+ number + number.length)
   var something = false;
   for(x=0;x<number.length;x+=1){
-    // console.log(x + "  number[x]  " + number[x])
     if (number[x] == 0){
       console.log("found a 0");
       something = true;
       break;
     };
   };
-  // console.log("the ending of function   ...." + something)
   return something;
 }
+
 function dividedByThree(number) {
   var numberLength = $("#input").val();
   var something = false;
@@ -54,10 +49,8 @@ function dividedByThree(number) {
   }
 }
 
-
 function runAllFunctions(input){
   var inputText = parseInt($("#input").val());
-  console.log("not a number q" + isNaN(inputText))
   var inputNumber =  isItANumber(inputText);
   var isThereAOne = lookForNumberOne(inputText);
   var isThereAZero = lookForAZero(inputText)

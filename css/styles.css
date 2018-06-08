@@ -1,0 +1,9 @@
+body {
+  background: radial-gradient(lightgreen 60%, purple);
+}
+.container {
+  margin: 100px;
+  border: 50px;
+  padding: 50px;
+
+}
