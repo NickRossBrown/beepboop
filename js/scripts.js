@@ -1,7 +1,4 @@
 
-var resultText = function(result){
-  $(".outputDiv").text(result);
-};
 function isItANumber(text){
   var number = parseInt($("#input").val())
   console.log(number);
@@ -38,32 +35,48 @@ function lookForAZero(number) {
   };
   return something;
 }
-
 function dividedByThree(number) {
   var numberLength = $("#input").val();
   var something = false;
-  if (number % 3 === 0){
+
+  if (number % 3 === 0 && number > 0){
       console.log("can be divided by three");
       something = true;
       return something
   }
 }
-
-function runAllFunctions(input){
+var range = function getRange(number) {
+  var findRange = []
+  for (i=0;i<=number;i++){
+    findRange.push(i);
+  }
+  console.log(findRange)
+}
+function runAllFunctionsBasicBot(input){
   var inputText = parseInt($("#input").val());
   var inputNumber =  isItANumber(inputText);
   var isThereAOne = lookForNumberOne(inputText);
   var isThereAZero = lookForAZero(inputText)
   var canBeDividedByThree = dividedByThree(inputText)
-  console.log("LOOOK HERE" + canBeDividedByThree )
+  range(inputText)
+  console.log(range)
   if (canBeDividedByThree == true) {
     console.log("reached true on CAN BE DIVIDED BY THREE");
+    $(".outputDiv").text( "I'm sorry, Dave. I'm afraid I can't do that.");
+    return;
   }
   if (isThereAOne == true) {
     console.log("reached true on Is There A ONE FUNCTION");
+    $(".outputDiv").text( "BOOP!");
+    return;
   }
   if (isThereAZero == true) {
     console.log("reached true on Is There A ZERO FUNCTION");
+    $(".outputDiv").text( "BEEP!");
+    return;
+  }
+  else{
+    $(".outputDiv").text(inputText);
   }
 }
 
@@ -73,7 +86,11 @@ $(document).ready(function() {
     var inputText = parseInt($("#input").val());
     // lookForNumberOne(inputText)
 
-    runAllFunctions();
-
+    runAllFunctionsBasicBot();
+  });
+  $("#submitButtonEvenRange").click(function(event) {
+    event.preventDefault();
+    var inputText = parseInt($("#inputEvenRange").val());
+    $(".outputDivEvenRange").text(inputText)
   });
 });
