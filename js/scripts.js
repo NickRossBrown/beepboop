@@ -97,7 +97,7 @@ function runAllFunctionsEvenRangeBot(input){
     console.log(i);
     if (dividedByThree(i)==true){
       console.log("reached /3  if here  "+evenArray[i]+finalArray)
-      finalArray = finalArray.replace(evenArray[i],"Sorry DAVE")
+      finalArray = finalArray.replace(evenArray[i],"I'm sorry, Dave. I'm afraid I can't do that.")
     }
     if (lookForNumberOne(i)==true){
       console.log("FOUND A ONE reached if here  "+evenArray[i]+finalArray)
@@ -108,7 +108,40 @@ function runAllFunctionsEvenRangeBot(input){
       finalArray = finalArray.replace(evenArray[i],"BEEP!")
     }
   }
-  $(".outputDivEvenRange").text(finalArray)
+  $("#outputEvenRange").text(finalArray)
+}
+
+var UnnecessaryRangeRange = function getUnnecessaryRangeRange(UnnNumbers) {
+  var findRange = []
+  for (i=0;i<=UnnNumbers;i++){
+    findRange.push(i);
+  }
+  return findRange;
+}
+function runAllFunctionsWithUnnecessaryRange(input3){
+  console.log("reached")
+  var inputText2 = parseInt($("#inputWithUnnecessaryRange").val());
+  var UnnecessaryRangeArray = (UnnecessaryRangeRange(inputText2));
+  var finalArray  = UnnecessaryRangeArray.toString();
+  console.log(typeof(UnnecessaryRangeArray))
+  for (i in UnnecessaryRangeArray){
+    console.log(i);
+    if (dividedByThree(i)==true){
+      console.log("reached /3  if here  "+ finalArray)
+      finalArray = finalArray.replace(UnnecessaryRangeArray[i],"I'm sorry, Dave. I'm afraid I can't do that.")
+    }
+    if (lookForNumberOne(i)==true){
+      console.log("FOUND A ONE reached if here  "+finalArray)
+      finalArray = finalArray.replace(UnnecessaryRangeArray[i],"BOOP!")
+    }
+    if (lookForAZero(i)==true){
+      console.log("FOUND A ZZZZEEERO reached if here  "+finalArray)
+      finalArray = finalArray.replace(UnnecessaryRangeArray[i],"BEEP!")
+    }
+  }
+  // var finaljoinedArray = finalArray.join('/');
+  // finaljoinedArray = finaljoinedArray.join()
+  $("#outputWithUnnecessaryRange").text(finalArray)
 }
 
 $(document).ready(function() {
@@ -122,5 +155,11 @@ $(document).ready(function() {
     var inputText = parseInt($("#inputEvenRange").val());
     // $(".outputDivEvenRange").text(inputText)
     runAllFunctionsEvenRangeBot();
+  });
+  $("#submitButtonWithUnnecessaryRange").click(function(event) {
+    event.preventDefault();
+    var inputText = parseInt($("#inputWithUnnecessaryRange").val());
+    // $(".outputDivEvenRange").text(inputText)
+    runAllFunctionsWithUnnecessaryRange();
   });
 });
