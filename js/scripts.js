@@ -58,8 +58,8 @@ function runAllFunctionsBasicBot(input){
   var isThereAOne = lookForNumberOne(inputText);
   var isThereAZero = lookForAZero(inputText)
   var canBeDividedByThree = dividedByThree(inputText)
-  range(inputText)
-  console.log(range)
+  // range(inputText)
+  // console.log(range)
   if (canBeDividedByThree == true) {
     console.log("reached true on CAN BE DIVIDED BY THREE");
     $(".outputDiv").text( "I'm sorry, Dave. I'm afraid I can't do that.");
@@ -80,17 +80,38 @@ function runAllFunctionsBasicBot(input){
   }
 }
 
+var evenRange = function getEvenRange(evenNumbers) {
+  var findRange = []
+  for (i=0;i<=evenNumbers;i+=2){
+    findRange.push(i);
+  }
+  return findRange;
+}
+function runAllFunctionsEvenRangeBot(input){
+  var inputText2 = parseInt($("#inputEvenRange").val());
+  var evenArray = (evenRange(inputText2));
+  var finalArray  = evenArray.toString();
+  console.log(evenArray)
+  for (i in evenArray){
+    console.log(i);
+    if (dividedByThree(i)==true){
+      console.log("reached /3  if here  "+evenArray[i]+finalArray)
+      finalArray = finalArray.replace(evenArray[i],"Sorry DAVE")
+    }
+  }
+  $(".outputDivEvenRange").text(evenRange(inputText2))
+}
+
 $(document).ready(function() {
   $("#submitButton").click(function(event) {
     event.preventDefault();
     var inputText = parseInt($("#input").val());
-    // lookForNumberOne(inputText)
-
     runAllFunctionsBasicBot();
   });
   $("#submitButtonEvenRange").click(function(event) {
     event.preventDefault();
     var inputText = parseInt($("#inputEvenRange").val());
-    $(".outputDivEvenRange").text(inputText)
+    // $(".outputDivEvenRange").text(inputText)
+    runAllFunctionsEvenRangeBot();
   });
 });
