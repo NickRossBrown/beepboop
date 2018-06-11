@@ -12,7 +12,7 @@ function isItANumber(text){
   return(number)
 };
 function lookForNumberOne(number) {
-  var number = $("#input").val();
+  // var number = $("#input").val();
   var something = false;
   for(x=0;x<number.length;x+=1){
     if (number[x] == 1){
@@ -56,28 +56,32 @@ function runAllFunctionsBasicBot(input){
   var inputText = parseInt($("#input").val());
   var needThis = $("#input").val();
   var inputNumber =  isItANumber(inputText);
-  var isThereAOne = lookForNumberOne(inputText);
+  var isThereAOne = lookForNumberOne(needThis);
   var isThereAZero = lookForAZero(needThis)
   var canBeDividedByThree = dividedByThree(inputText)
   // range(inputText)
   // console.log(range)
+  if (inputText == 0){
+    $(".outputDiv").text("BEEP!");
+    return;
+  }
   if (canBeDividedByThree == true) {
     console.log("reached true on CAN BE DIVIDED BY THREE");
-    $(".outputDiv").text( "I'm sorry, Dave. I'm afraid I can't do that.");
+    $(".outputDiv").text("BEEP!  " + "I'm sorry, Dave. I'm afraid I can't do that.");
     return;
   }
   if (isThereAOne == true) {
     console.log("reached true on Is There A ONE FUNCTION");
-    $(".outputDiv").text( "BOOP!");
+    $(".outputDiv").text("BEEP!  " + "BOOP!");
     return;
   }
   if (isThereAZero == true) {
     console.log("reached true on Is There A ZERO FUNCTION");
-    $(".outputDiv").text( "BEEP!");
+    $(".outputDiv").text("BEEP!  " + "BEEP!");
     return;
   }
   else{
-    $(".outputDiv").text(inputText);
+    $(".outputDiv").text("BEEP!   " +inputText);
   }
 }
 
